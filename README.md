@@ -1,8 +1,6 @@
 Sysctl
 ======
 
-[![Build Status](https://api.travis-ci.org/azmelanar/ansible-sysctl.png)](https://travis-ci.org/azmelanar/ansible-sysctl) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-sysctl-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2601)
-
 Role for manage sysctl rules.
 
 Requirements
@@ -19,9 +17,13 @@ Sysctl parameters can be set as dictionary. Example:
        kernel.panic: 10
        vm.swappiness: 10
  
-Error on setting non-existent sysctl keys might be ignored with:
+Error at setting non-existent sysctl keys might be ignored with:
 
-     sysctl_ignore_errors: "yes"
+     sysctl_ignore_key_errors: "yes" (default: yes)
+
+Any errors might be ignored with:
+     sysctl_ignore_all_errors: "yes" (default: no)
+
 
 Dependencies
 ------------
@@ -35,7 +37,7 @@ Example of usage:
 
     - hosts: servers
       roles:
-         - { role: azmelanar.sysctl }
+         - { role: sysctl }
 
 License
 -------
@@ -45,4 +47,4 @@ MIT
 Feedback, improvements, bugs
 ----------------------------
 
-Please use [issues](https://github.com/azmelanar/ansible-sysctl/issues).
+Please use [issues](https://github.com/alxgrh/ansible-sysctl/issues).

@@ -1,6 +1,7 @@
 ---
 # defaults file for sysctl
 
-sysctl_ignore_errors: "yes"
+sysctl_ignore_key_errors: "yes"
+sysctl_ignore_all_errors: "no"
 
 sysctl_rules: {}
