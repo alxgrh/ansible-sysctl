@@ -2,7 +2,8 @@
 # tasks file for sysctl
 
 - name: set sysctl rules
-  sysctl: name="{{ item.key }}" value="{{ item.value }}"  ignoreerrors={{ sysctl_ignore_errors }}
+  sysctl: name="{{ item.key }}" value="{{ item.value }}"  ignoreerrors="{{ sysctl_ignore_key_errors }}"
   with_dict: sysctl_rules
   when: sysctl_rules is defined
+  ignore_errors: "{{ sysctl_ignore_all_errors }}"
   tags: [sysctl]
